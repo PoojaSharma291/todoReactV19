@@ -1,0 +1,29 @@
+.add-todo {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-input {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #4a90e2;
+    border-radius: 5px;
+  }
+  
+  .todo-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .todo-button:hover {
+    background-color: #357ab8;
+  }
+  

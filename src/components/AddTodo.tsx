@@ -1,28 +1,31 @@
 import React, { useState } from 'react';
+import './AddTodo.css';
 
 interface AddTodoProps {
-  onAddTodo: (text: string) => void;
+  addTodo: (todo: string) => void;
 }
 
-const AddTodo: React.FC<AddTodoProps> = ({ onAddTodo }) => {
-  const [text, setText] = useState('');
+const AddTodo: React.FC<AddTodoProps> = ({ addTodo }) => {
+  const [todo, setTodo] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!text.trim()) return;
-    onAddTodo(text);
-    setText('');
+    addTodo(todo);
+    setTodo('');
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="add-todo" onSubmit={handleSubmit}>
       <input
         type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Add a new task"
+        className="todo-input"
+        placeholder="Add a new task..."
+        value={todo}
+        onChange={(e) => setTodo(e.target.value)}
       />
-      <button type="submit">Add</button>
+      <button className="todo-button" type="submit">
+        Add
+      </button>
     </form>
   );
 };

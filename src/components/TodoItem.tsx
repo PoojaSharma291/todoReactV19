@@ -1,23 +1,20 @@
 import React from 'react';
-import { Todo } from '../App';
+import './TodoItem.css';
 
 interface TodoItemProps {
-  todo: Todo;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
+  todo: string;
+  index: number;
+  deleteTodo: (index: number) => void;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ todo, onToggle, onDelete }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, index, deleteTodo }) => {
   return (
-    <div className="todo-item">
-      <input
-        type="checkbox"
-        checked={todo.completed}
-        onChange={() => onToggle(todo.id)}
-      />
-      <span className={todo.completed ? 'completed' : ''}>{todo.text}</span>
-      <button onClick={() => onDelete(todo.id)}>Delete</button>
-    </div>
+    <li className="todo-item">
+      <span className="todo-text">{todo}</span>
+      <button className="delete-button" onClick={() => deleteTodo(index)}>
+        ✕
+      </button>
+    </li>
   );
 };
 
